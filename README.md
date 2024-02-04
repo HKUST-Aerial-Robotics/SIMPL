@@ -1,5 +1,9 @@
 # SIMPL: A Simple and Efficient Multi-agent Motion Prediction Baseline for Autonomous Driving
 
+<p align="center">
+  <img src="files/logo.jpg" width = "400"/>
+</p>
+
 ## Introduction
 This is the project page of the paper
 
