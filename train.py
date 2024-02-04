@@ -40,7 +40,6 @@ def parse_arguments() -> Any:
     parser.add_argument("--resume", action="store_true", help="Resume training")
     parser.add_argument("--no_pbar", action="store_true", help="Hide progress bar")
     parser.add_argument("--model_path", required=False, type=str, help="path to the saved model")
-    parser.add_argument("--backup", required=False, default="", type=str, help="Backup path")
     return parser.parse_args()
 
 
@@ -61,10 +60,6 @@ def main():
     logger = Logger(date_str=date_str, log_dir=log_dir, enable_flags={'writer': args.logger_writer})
     # log basic info
     logger.log_basics(args=args, datetime=date_str)
-    # backup code
-    if args.backup:
-        _, ret = subprocess.getstatusoutput("sh tools/make_backup.sh {} {}".format(date_str, args.backup))
-        logger.print(ret)
 
     loader = Loader(args, device, is_ddp=False)
     if args.resume:

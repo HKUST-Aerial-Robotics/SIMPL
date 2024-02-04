@@ -5,9 +5,9 @@ This is the project page of the paper
 
 * Lu Zhang, Peiliang Li, Sikang Liu, and Shaojie Shen, "SIMPL: A Simple and Efficient Multi-agent Motion Prediction Baseline for Autonomous Driving", 2023. (Corresponding author: Lu ZHANG, lzhangbz@connect.ust.hk)
 
-* Notice: The code will be released after the publishing of this paper.
-
 **Preprint:** Comming soon~
+
+**Video:** [YouTube](https://youtu.be/_8-6ccopZMM)
 
 ## Qualitative Results
 
@@ -37,7 +37,7 @@ This is the project page of the paper
 ## Gettting Started
 
 ### Install dependencies
-- Create a new conda env
+- Create a new conda virtual env
 ```
 conda create --name simpl python=3.8
 conda activate simpl
@@ -48,7 +48,7 @@ conda activate simpl
 conda install pytorch==1.12.0 torchvision==0.13.0 torchaudio==0.12.0 cudatoolkit=11.6 -c pytorch -c conda-forge
 ```
 
-- Install Argoverse 1 & 2 APIs, please follow this [page](https://github.com/argoai/argoverse-api) and [page](https://argoverse.github.io/user-guide/getting_started.html).
+- Install Argoverse 1 & 2 APIs, please follow [argoverse-api](https://github.com/argoai/argoverse-api) and [av2-api](https://argoverse.github.io/user-guide/getting_started.html).
 
 
 - Install other dependencies
@@ -97,7 +97,6 @@ You are supposed to get:
 Validation set finish, cost 289.01 secs
 -- minade_1: 1.428 minfde_1: 3.240 mr_1: 0.512 brier_fde_1: 3.240 minade_k: 0.658 minfde_k: 0.947 mr_k: 0.081 brier_fde_k: 1.558
 ```
-
 
 ## Acknowledgement
 We would like to express sincere thanks to the authors of the following packages and tools:
