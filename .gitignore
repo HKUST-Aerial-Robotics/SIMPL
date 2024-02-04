@@ -1,0 +1,6 @@
+*/__pycache__/*
+*~
+*/*.pyc
+log/*
+data_argo/features*
+data_av2/features*
