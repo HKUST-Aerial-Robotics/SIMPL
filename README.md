@@ -115,10 +115,11 @@ The preprocessed dataset will cost about 15 GB storage, please reserve enough sp
 sh scripts/simpl_av1_train.sh
 ```
 
-## Acknowledgement
+## Acknowledgment
 We would like to express sincere thanks to the authors of the following packages and tools:
 - [LaneGCN](https://github.com/uber-research/LaneGCN)
 - [HiVT](https://github.com/ZikangZhou/HiVT)
+- [DSP](https://github.com/HKUST-Aerial-Robotics/DSP)
 
 ## License
 This repository is licensed under [MIT license](https://github.com/HKUST-Aerial-Robotics/SIMPL/blob/main/LICENSE).
