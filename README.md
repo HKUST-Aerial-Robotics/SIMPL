@@ -98,6 +98,19 @@ Validation set finish, cost 289.01 secs
 -- minade_1: 1.428 minfde_1: 3.240 mr_1: 0.512 brier_fde_1: 3.240 minade_k: 0.658 minfde_k: 0.947 mr_k: 0.081 brier_fde_k: 1.558
 ```
 
+### Train from scratch
+
+- Preprocess full Argoverse 1 motion forecasting dataset using the script:
+```
+sh scripts/argo_preproc_all.sh
+```
+The preprocessed dataset will cost about 15 GB storage, please reserve enough space for preprocessing.
+
+- Launch (single-card) training using the script:
+```
+sh scripts/simpl_av1_train.sh
+```
+
 ## Acknowledgement
 We would like to express sincere thanks to the authors of the following packages and tools:
 - [LaneGCN](https://github.com/uber-research/LaneGCN)
