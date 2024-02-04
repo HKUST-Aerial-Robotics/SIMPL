@@ -29,6 +29,11 @@ This is the project page of the paper
 
 ----
 
+## Todo List
+- [ ] Release code for Argoverse 2 dataset
+- [ ] Release training and evaluation scripts for DDP
+- [x] First release
+
 ## Gettting Started
 
 ### Install dependencies
@@ -43,7 +48,7 @@ conda activate simpl
 conda install pytorch==1.12.0 torchvision==0.13.0 torchaudio==0.12.0 cudatoolkit=11.6 -c pytorch -c conda-forge
 ```
 
-- Install Argoverse 1 & 2 APIs, please follow this [page](https://github.com/argoai/argoverse-api) and [page](https://github.com/argoverse/av2-api).
+- Install Argoverse 1 & 2 APIs, please follow this [page](https://github.com/argoai/argoverse-api) and [page](https://argoverse.github.io/user-guide/getting_started.html).
 
 
 - Install other dependencies
@@ -87,11 +92,12 @@ To evaluate the trained models:
 ```
 sh scripts/simpl_av1_eval.sh
 ```
+You are supposed to get:
+```
+Validation set finish, cost 289.01 secs
+-- minade_1: 1.428 minfde_1: 3.240 mr_1: 0.512 brier_fde_1: 3.240 minade_k: 0.658 minfde_k: 0.947 mr_k: 0.081 brier_fde_k: 1.558
+```
 
-## Todo List
-- [ ] Release code for Argoverse 2 dataset
-- [ ] Release training and evaluation scripts
-- [x] First release
 
 ## Acknowledgement
 We would like to express sincere thanks to the authors of the following packages and tools:
