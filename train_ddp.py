@@ -195,7 +195,7 @@ def main():
                 save_ckpt(net.module, optimizer, epoch, 'saved_models/', model_name)
                 logger.print('Save the model to {}'.format('saved_models/' + model_name))
 
-    logger.print("\nTraining completed in {} mins".format((time.time() - start_time) / 60.0))
+    logger.print("\nTraining completed in {:.2f} mins".format((time.time() - start_time) / 60.0))
 
     if is_main:
         # save trained model

@@ -1,4 +1,4 @@
-CUDA_VISIBLE_DEVICES="0" torchrun --nproc_per_node 1 evaluation_ddp.py \
+CUDA_VISIBLE_DEVICES="0,1,2,3" torchrun --nproc_per_node 4 evaluation_ddp.py \
   --features_dir data_argo/features/ \
   --train_batch_size 16 \
   --val_batch_size 16 \

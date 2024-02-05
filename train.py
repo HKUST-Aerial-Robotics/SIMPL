@@ -168,7 +168,7 @@ def main():
             save_ckpt(net, optimizer, epoch, 'saved_models/', model_name)
             logger.print('Save the model to {}'.format('saved_models/' + model_name))
 
-    logger.print("\nTraining completed in {} mins".format((time.time() - start_time) / 60.0))
+    logger.print("\nTraining completed in {:.2f} mins".format((time.time() - start_time) / 60.0))
 
     # save trained model
     model_name = date_str + '_{}_epoch{}.tar'.format(net_name, args.train_epoches)

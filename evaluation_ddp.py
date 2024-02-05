@@ -129,7 +129,7 @@ def main():
         val_eval_meter.update(val_eval)
 
         dist.barrier()  # sync
-        logger.print('\nValidation set finish, cost {} secs'.format(time.time() - val_start))
+        logger.print('\nValidation set finish, cost {:.2f} secs'.format(time.time() - val_start))
         logger.print('-- ' + val_eval_meter.get_info())
 
     dist.destroy_process_group()

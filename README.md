@@ -35,7 +35,7 @@ This is the project page of the paper
 
 ## Todo List
 - [ ] Release code for Argoverse 2 dataset
-- [ ] Release training and evaluation scripts for DDP
+- [x] Release training and evaluation scripts for DDP
 - [x] First release
 
 ## Gettting Started
@@ -110,9 +110,22 @@ sh scripts/argo_preproc_all.sh
 ```
 The preprocessed dataset will cost about 15 GB storage, please reserve enough space for preprocessing.
 
-- Launch (single-card) training using the script:
+- Launch training using the script:
 ```
+# single-card
 sh scripts/simpl_av1_train.sh
+
+# multi-card based on DDP
+sh scripts/simpl_av1_train_ddp.sh
+```
+
+- For model evaluation, please refer to the following scripts:
+```
+# single-card
+sh scripts/simpl_av1_eval.sh
+
+# multi-card based on DDP
+sh scripts/simpl_av1_eval_ddp.sh
 ```
 
 ## Acknowledgment

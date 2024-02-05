@@ -2,5 +2,6 @@
 *~
 */*.pyc
 log/*
+saved_models/20*
 data_argo/features*
 data_av2/features*
