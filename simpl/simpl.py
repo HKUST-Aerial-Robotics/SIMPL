@@ -453,7 +453,7 @@ class MLPDecoder(nn.Module):
         )
 
         if self.param_out == 'bezier':
-            self.N_ORDER = 7
+            self.N_ORDER = 5
             self.mat_T = self._get_T_matrix_bezier(n_order=self.N_ORDER, n_step=future_steps).to(self.device)
             self.mat_Tp = self._get_Tp_matrix_bezier(n_order=self.N_ORDER, n_step=future_steps).to(self.device)
 
@@ -467,7 +467,7 @@ class MLPDecoder(nn.Module):
                 nn.Linear(self.hidden_size, (self.N_ORDER + 1) * 2)
             )
         elif self.param_out == 'monomial':
-            self.N_ORDER = 7
+            self.N_ORDER = 5
             self.mat_T = self._get_T_matrix_monomial(n_order=self.N_ORDER, n_step=future_steps).to(self.device)
             self.mat_Tp = self._get_Tp_matrix_monomial(n_order=self.N_ORDER, n_step=future_steps).to(self.device)
 
