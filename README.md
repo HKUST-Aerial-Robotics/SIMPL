@@ -9,7 +9,7 @@ This is the project page of the paper
 
 * Lu Zhang, Peiliang Li, Sikang Liu, and Shaojie Shen, "SIMPL: A Simple and Efficient Multi-agent Motion Prediction Baseline for Autonomous Driving", 2023. (Corresponding author: Lu ZHANG, lzhangbz@connect.ust.hk)
 
-**Preprint:** Comming soon~
+**Preprint:** [arXiv](https://arxiv.org/abs/2402.02519)
 
 **Video:** [YouTube](https://youtu.be/_8-6ccopZMM)
 
