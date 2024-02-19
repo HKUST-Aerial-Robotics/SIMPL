@@ -7,7 +7,9 @@
 ## Introduction
 This is the project page of the paper
 
-* Lu Zhang, Peiliang Li, Sikang Liu, and Shaojie Shen, "SIMPL: A Simple and Efficient Multi-agent Motion Prediction Baseline for Autonomous Driving", 2023. (Corresponding author: Lu ZHANG, lzhangbz@connect.ust.hk)
+* Lu Zhang, Peiliang Li, Sikang Liu, and Shaojie Shen, "SIMPL: A Simple and Efficient Multi-agent Motion Prediction Baseline for Autonomous Driving", arXiv preprint arXiv:2402.02519 (2024), (Corresponding author: Lu ZHANG, lzhangbz@connect.ust.hk),
+
+which is accepted for publication in the IEEE Robotics and Automation Letters (RA-L), 2024.
 
 **Preprint:** [arXiv](https://arxiv.org/abs/2402.02519)
 
@@ -112,19 +114,19 @@ The preprocessed dataset will cost about 15 GB storage, please reserve enough sp
 
 - Launch training using the script:
 ```
-# single-card
+# single-GPU
 sh scripts/simpl_av1_train.sh
 
-# multi-card based on DDP
+# multi-GPU based on DDP
 sh scripts/simpl_av1_train_ddp.sh
 ```
 
 - For model evaluation, please refer to the following scripts:
 ```
-# single-card
+# single-GPU
 sh scripts/simpl_av1_eval.sh
 
-# multi-card based on DDP
+# multi-GPU based on DDP
 sh scripts/simpl_av1_eval_ddp.sh
 ```
 
