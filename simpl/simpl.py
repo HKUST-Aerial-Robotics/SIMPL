@@ -420,18 +420,17 @@ class FusionNet(nn.Module):
 class MLPDecoder(nn.Module):
     def __init__(self,
                  device,
-                 param_out='none',
-                 hidden_size=128,
-                 future_steps=30,
-                 num_modes=6) -> None:
+                 config) -> None:
         super(MLPDecoder, self).__init__()
-        self.hidden_size = hidden_size
-        self.future_steps = future_steps
-        self.num_modes = num_modes
         self.device = device
-        self.param_out = param_out  # parametric output: bezier/monomial/none
+        self.config = config
+        self.hidden_size = config['d_embed']
+        self.future_steps = config['g_pred_len']
+        self.num_modes = config['g_num_modes']
+        self.param_out = config['param_out']  # parametric output: bezier/monomial/none
+        self.N_ORDER = config['param_order']
 
-        dim_mm = self.hidden_size * num_modes
+        dim_mm = self.hidden_size * self.num_modes
         dim_inter = dim_mm // 2
         self.multihead_proj = nn.Sequential(
             nn.Linear(self.hidden_size, dim_inter),
@@ -453,9 +452,8 @@ class MLPDecoder(nn.Module):
         )
 
         if self.param_out == 'bezier':
-            self.N_ORDER = 5
-            self.mat_T = self._get_T_matrix_bezier(n_order=self.N_ORDER, n_step=future_steps).to(self.device)
-            self.mat_Tp = self._get_Tp_matrix_bezier(n_order=self.N_ORDER, n_step=future_steps).to(self.device)
+            self.mat_T = self._get_T_matrix_bezier(n_order=self.N_ORDER, n_step=self.future_steps).to(self.device)
+            self.mat_Tp = self._get_Tp_matrix_bezier(n_order=self.N_ORDER, n_step=self.future_steps).to(self.device)
 
             self.reg = nn.Sequential(
                 nn.Linear(self.hidden_size, self.hidden_size),
@@ -467,9 +465,8 @@ class MLPDecoder(nn.Module):
                 nn.Linear(self.hidden_size, (self.N_ORDER + 1) * 2)
             )
         elif self.param_out == 'monomial':
-            self.N_ORDER = 5
-            self.mat_T = self._get_T_matrix_monomial(n_order=self.N_ORDER, n_step=future_steps).to(self.device)
-            self.mat_Tp = self._get_Tp_matrix_monomial(n_order=self.N_ORDER, n_step=future_steps).to(self.device)
+            self.mat_T = self._get_T_matrix_monomial(n_order=self.N_ORDER, n_step=self.future_steps).to(self.device)
+            self.mat_Tp = self._get_Tp_matrix_monomial(n_order=self.N_ORDER, n_step=self.future_steps).to(self.device)
 
             self.reg = nn.Sequential(
                 nn.Linear(self.hidden_size, self.hidden_size),
@@ -588,10 +585,7 @@ class Simpl(nn.Module):
                                     config=cfg)
 
         self.pred_net = MLPDecoder(device=self.device,
-                                   param_out=cfg['param_out'],
-                                   hidden_size=cfg['d_embed'],
-                                   future_steps=cfg['g_pred_len'],
-                                   num_modes=cfg['g_num_modes'])
+                                   config=cfg)
 
         if cfg["init_weights"]:
             self.apply(init_weights)
