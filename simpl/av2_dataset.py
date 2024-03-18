@@ -335,50 +335,6 @@ class AV2Dataset(Dataset):
         if not (self.aug and is_aug):
             return data
 
-        # print('[Debug] augmenting data ...')
-        # # ~ random translation & rotation
-        # '''
-        #     transform p_local, keep p_world invariant:
-        #     p_w = (p_l * Q + e) * R' + t = p_l * Q * R' + e * R' + t
-        #         R := R * Q
-        #         t := t - e * R'
-        # '''
-        # pos_rand = (np.random.rand(2) * 2 - 1.0).astype(np.float32) * 0.0
-        # ang_rand = (np.random.rand() * 2 - 1.0) * math.pi / 12
-        # rot_rand = np.array([[math.cos(ang_rand), -math.sin(ang_rand)],
-        #                     [math.sin(ang_rand), math.cos(ang_rand)]], dtype=np.float32)
-
-        # data['TRAJS'] = np.matmul(data['TRAJS'], rot_rand) + pos_rand
-        # for idx, (act_ctr, act_vec) in enumerate(zip(data['TRAJS_CTRS'],
-        #                                              data['TRAJS_VECS'])):
-        #     cos_theta = act_vec[0]
-        #     sin_theta = act_vec[1]
-        #     act_rot = np.array([[cos_theta, -sin_theta], [sin_theta, cos_theta]])
-        #     data['TRAJS_CTRS'][idx] -= pos_rand.dot(act_rot.T)
-        #     data['TRAJS_VECS'][idx] = np.matmul(act_rot, rot_rand)[:, 0]
-
-        # data['LANE_GRAPH']['node_ctrs'] = np.matmul(data['LANE_GRAPH']['node_ctrs'], rot_rand) + pos_rand
-        # data['LANE_GRAPH']['node_vecs'] = np.matmul(data['LANE_GRAPH']['node_vecs'], rot_rand)
-        # for idx, (ctr, vec) in enumerate(zip(data['LANE_GRAPH']['lane_ctrs'],
-        #                                      data['LANE_GRAPH']['lane_vecs'])):
-        #     cos_theta = vec[0]
-        #     sin_theta = vec[1]
-        #     rot = np.array([[cos_theta, -sin_theta], [sin_theta, cos_theta]])
-        #     data['LANE_GRAPH']['lane_ctrs'][idx] -= pos_rand.dot(rot.T)
-        #     data['LANE_GRAPH']['lane_vecs'][idx] = np.matmul(rot, rot_rand)[:, 0]
-
-        # if random.choices([True, False])[0]:
-        #     # ~ random vertical flip
-        #     data['TRAJS_CTRS'][..., 1] *= -1
-        #     data['TRAJS_VECS'][..., 1] *= -1
-        #     data['TRAJS'][..., 1] *= -1
-
-        #     data['LANE_GRAPH']['lane_ctrs'][..., 1] *= -1
-        #     data['LANE_GRAPH']['lane_vecs'][..., 1] *= -1
-        #     data['LANE_GRAPH']['node_ctrs'][..., 1] *= -1
-        #     data['LANE_GRAPH']['node_vecs'][..., 1] *= -1
-        #     data['LANE_GRAPH']['left'], data['LANE_GRAPH']['right'] = data['LANE_GRAPH']['right'], data['LANE_GRAPH']['left']
-
         # ~ random vertical flip
         data['TRAJS']['trajs_ctrs'][..., 1] *= -1
         data['TRAJS']['trajs_vecs'][..., 1] *= -1

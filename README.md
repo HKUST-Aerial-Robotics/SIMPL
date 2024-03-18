@@ -36,7 +36,7 @@ which is accepted for publication in the IEEE Robotics and Automation Letters (R
 ----
 
 ## Todo List
-- [ ] Release code for Argoverse 2 dataset
+- [x] Release code for Argoverse 2 dataset
 - [x] Release training and evaluation scripts for DDP
 - [x] First release
 
@@ -129,6 +129,10 @@ sh scripts/simpl_av1_eval.sh
 # multi-GPU based on DDP
 sh scripts/simpl_av1_eval_ddp.sh
 ```
+
+### Train/Evaluate/Visualize SIMPL using Argoverse 2
+Please refer to the scripts in the directory `scripts/`, and the usage is similar to scripts for the Argoverse 1 dataset. If you have any questions, please feel free to raise an issue or contact us via email.
+
 
 ## Acknowledgment
 We would like to express sincere thanks to the authors of the following packages and tools:
